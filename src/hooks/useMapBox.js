@@ -36,6 +36,14 @@ export const useMapBox = (puntoInicial) => {
                 .setDraggable(true);
 
             marcadores.current[marker.id] = marker
+
+            //escuchar movimientos del marcador
+            marker.on('drag', ({target})=>{
+                const {id} = target;
+                const {lng, lat} = target.getLngLat();
+
+                
+            })
         },
         [],
     )
