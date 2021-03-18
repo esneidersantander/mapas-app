@@ -11,13 +11,21 @@ export const MapaPage = () => {
 
     //    const [mapa, setMapa] = useState();
 
-    const {coords, setRef, nuevoMarcador$}= useMapBox(puntoInicial);
+    const {coords, setRef, nuevoMarcador$, movimientoMarcador$}= useMapBox(puntoInicial);
 
+
+    //nuevo marcador
     useEffect(() => {
         nuevoMarcador$.subscribe(marcador =>{
             console.log(marcador);
         })
     }, [nuevoMarcador$])
+
+    useEffect(() => {
+        movimientoMarcador$.subscribe(marcador=>{
+            console.log(marcador);
+        })
+    }, [ movimientoMarcador$])
 
     return (
         <>
